@@ -56,12 +56,17 @@ namespace ContractManager.Controllers.Base
                 Entities.Add(entity);
                 ContractDb.SaveChanges();
 
-                return RedirectToAction("Index");
+                return CreateRedirectAction(entity);
             }
             catch
             {
                 return View(entity);
             }
+        }
+
+        protected virtual ActionResult CreateRedirectAction(TEntity entity)
+        {
+            return RedirectToAction("Index");
         }
 
         public virtual ActionResult Edit(int id)
@@ -91,7 +96,7 @@ namespace ContractManager.Controllers.Base
                 var savedEntity = Entities.Find(entity.Id);
 
                 // what will be updated
-                MapEntityBeforeSave(entity, savedEntity);
+                MapEntityBeforeUpdate(entity, savedEntity);
     
                 ContractDb.SaveChanges();
 
@@ -108,7 +113,7 @@ namespace ContractManager.Controllers.Base
             return View();
         }
 
-        protected abstract TEntity MapEntityBeforeSave(TEntity entity, TEntity savedEntity);
+        protected abstract TEntity MapEntityBeforeUpdate(TEntity entity, TEntity savedEntity);
         protected abstract IDbSet<TEntity> GetDbSet();
     }
 }

@@ -18,7 +18,7 @@ namespace ContractManager.Controllers
 
         }
 
-        protected override Address MapEntityBeforeSave(Address entity, Address savedEntity)
+        protected override Address MapEntityBeforeUpdate(Address entity, Address savedEntity)
         {
             savedEntity.Street = entity.Street;
 
@@ -34,6 +34,21 @@ namespace ContractManager.Controllers
         public ActionResult Create(int? companyId, int? personId)
         {
             return View();
+        }
+
+        protected override ActionResult CreateRedirectAction(Address entity)
+        {
+            if (entity.PersonId.HasValue)
+            {
+                return RedirectToAction("Edit", "Person", new { Id = entity.PersonId.Value });     
+            }
+
+            if (entity.CompanyId.HasValue)
+            {
+                return RedirectToAction("Edit", "Company", new { Id = entity.CompanyId.Value });     
+            }
+
+            return base.CreateRedirectAction(entity);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ContractManager.Controllers
         {
         }
 
-        protected override Company MapEntityBeforeSave(Company entity, Company savedEntity)
+        protected override Company MapEntityBeforeUpdate(Company entity, Company savedEntity)
         {
             savedEntity.ICO = entity.ICO;
             savedEntity.DIC = entity.DIC;

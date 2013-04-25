@@ -15,16 +15,17 @@
     <script src="~/Scripts/jquery-1.8.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    @using (Html.BeginForm()) {
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
     
         <fieldset>
             <legend>Company</legend>
-    
+
             @Html.HiddenFor(model => model.Id)
-    
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.Name)
             </div>
@@ -32,7 +33,7 @@
                 @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
-    
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.ICO)
             </div>
@@ -40,7 +41,7 @@
                 @Html.EditorFor(model => model.ICO)
                 @Html.ValidationMessageFor(model => model.ICO)
             </div>
-    
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.DIC)
             </div>
@@ -48,16 +49,30 @@
                 @Html.EditorFor(model => model.DIC)
                 @Html.ValidationMessageFor(model => model.DIC)
             </div>
-    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Addresses)
+                @Html.ActionLink("Add", "Create", "Address", new { CompanyId = Model.Id }, null)
+            </div>
+            <div class="editor-field">
+                <table>
+                    <tbody>
+                        @foreach (var address in Model.Addresses)
+                        {
+                            <tr>
+                                <td>@address.Street</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
             <p>
                 <input type="submit" value="Save" />
             </p>
         </fieldset>
     }
-    
-    <div>
-        @Html.ActionLink("Add Address", "Create", "Address", new { CompanyId = Model.Id }, null)
 
+    <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
 </body>

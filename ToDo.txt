@@ -1,0 +1,7 @@
+CompanyEdit 
+- now has Addresses list
+- add delete Address action on addressController with redirect back to Company/Person edit/detail
+- add edit address action 
+
+PersonEdit
+- add Addresses list with add/delete/edit

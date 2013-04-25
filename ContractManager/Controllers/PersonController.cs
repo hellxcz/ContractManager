@@ -18,10 +18,15 @@ namespace ContractManager.Controllers
         {
         }
 
-        protected override Person MapEntityBeforeSave(Person entity, Person savedEntity)
+        protected override Person MapEntityBeforeUpdate(Person entity, Person savedEntity)
         {
             throw new NotImplementedException();
         }
+
+        //protected override ActionResult CreateRedirectAction(Person entity)
+        //{
+        //    return base.Edit(entity.Id);
+        //}
 
         protected override IDbSet<Person> GetDbSet()
         {
