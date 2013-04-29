@@ -17,14 +17,7 @@ namespace ContractManager.Controllers
         {
 
         }
-
-        protected override Address MapEntityBeforeUpdate(Address entity, Address savedEntity)
-        {
-            savedEntity.Street = entity.Street;
-
-            return savedEntity;
-        }
-
+        
         protected override IDbSet<Address> GetDbSet()
         {
             return ContractDb.Addresses;

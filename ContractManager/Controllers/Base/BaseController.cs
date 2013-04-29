@@ -95,9 +95,11 @@ namespace ContractManager.Controllers.Base
 
                 var savedEntity = Entities.Find(entity.Id);
 
-                // what will be updated
-                MapEntityBeforeUpdate(entity, savedEntity);
-    
+                if (TryUpdateModel(savedEntity))
+                {
+                    
+                }
+
                 ContractDb.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -113,7 +115,6 @@ namespace ContractManager.Controllers.Base
             return View();
         }
 
-        protected abstract TEntity MapEntityBeforeUpdate(TEntity entity, TEntity savedEntity);
         protected abstract IDbSet<TEntity> GetDbSet();
     }
 }

@@ -15,14 +15,14 @@ namespace ContractManager.Controllers
         {
         }
 
-        protected override Company MapEntityBeforeUpdate(Company entity, Company savedEntity)
-        {
-            savedEntity.ICO = entity.ICO;
-            savedEntity.DIC = entity.DIC;
-            savedEntity.Name = entity.Name;
+        //protected override Company MapEntityBeforeUpdate(Company entity, Company savedEntity)
+        //{
+        //    savedEntity.ICO = entity.ICO;
+        //    savedEntity.DIC = entity.DIC;
+        //    savedEntity.Name = entity.Name;
 
-            return savedEntity;
-        }
+        //    return savedEntity;
+        //}
 
         protected override System.Data.Entity.IDbSet<Company> GetDbSet()
         {
