@@ -1,4 +1,4 @@
-namespace ContractManager.Domain.Interrfaces
+namespace ContractManager.Domain.Interfaces
 {
     public interface IHaveId
     {

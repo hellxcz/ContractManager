@@ -1,0 +1,6 @@
+﻿@model  IEnumerable<ContractManager.Domain.Contact>
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(modelItem => item.Value)<span>, </span> 
+}

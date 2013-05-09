@@ -1,8 +1,8 @@
-using ContractManager.Domain.Interrfaces;
+using ContractManager.Domain.Interfaces;
 
 namespace ContractManager.Domain
 {
-    public class Address : IHaveId
+    public class Address : IHaveId, IHavePersonId, IHaveCompanyId
     {
         public virtual int Id { get; set; }
         public virtual string Street { get; set; }

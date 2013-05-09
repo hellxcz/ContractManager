@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ContractManager.Domain.Interrfaces;
+using ContractManager.Domain.Interfaces;
 
 namespace ContractManager.Domain
 {

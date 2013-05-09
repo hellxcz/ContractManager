@@ -196,8 +196,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Base\PartyController.cs" />
     <Compile Include="Controllers\Base\RequireRequestValuesAttribute.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -330,6 +332,11 @@
     <Content Include="Views\Person\Create.cshtml" />
     <Content Include="Views\Company\Details.cshtml" />
     <Content Include="Views\Address\Create.cshtml" />
+    <Content Include="Views\Shared\_AddressesList.cshtml" />
+    <Content Include="Views\Shared\_ContactsList.cshtml" />
+    <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Shared\_AddressesDetail.cshtml" />
+    <Content Include="Views\Shared\_ContactsDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -45,8 +45,10 @@
     <Compile Include="Contact.cs" />
     <Compile Include="ContactType.cs" />
     <Compile Include="Contract.cs" />
-    <Compile Include="Interrfaces\IContractDataSource.cs" />
-    <Compile Include="Interrfaces\IHaveId.cs" />
+    <Compile Include="Interfaces\IContractDataSource.cs" />
+    <Compile Include="Interfaces\IHaveCompanyId.cs" />
+    <Compile Include="Interfaces\IHaveId.cs" />
+    <Compile Include="Interfaces\IHavePersonId.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

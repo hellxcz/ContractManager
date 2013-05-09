@@ -49,23 +49,19 @@
                 @Html.EditorFor(model => model.DIC)
                 @Html.ValidationMessageFor(model => model.DIC)
             </div>
+            ---------------------
             <div class="editor-label">
                 @Html.LabelFor(model => model.Addresses)
                 @Html.ActionLink("Add", "Create", "Address", new { CompanyId = Model.Id }, null)
+                <div>@Html.Partial("_AddressesList", Model.Addresses)</div>
             </div>
-            <div class="editor-field">
-                <table>
-                    <tbody>
-                        @foreach (var address in Model.Addresses)
-                        {
-                            <tr>
-                                <td>@address.Street</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
+            ---------------------
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Contacts)
+                @Html.ActionLink("Add", "Create", "Contact", new { CompanyId = Model.Id }, null)
+                <div>@Html.Partial("_ContactsList", Model.Contacts)</div>
             </div>
+            ---------------------
             <p>
                 <input type="submit" value="Save" />
             </p>

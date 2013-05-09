@@ -21,6 +21,7 @@ namespace ContractManager.Infrastructure
         public DbSet<Company> Companies { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<AddressType> AddressTypes { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
@@ -39,5 +40,6 @@ namespace ContractManager.Infrastructure
         {
             get { return Persons; }
         }
+
     }
 }

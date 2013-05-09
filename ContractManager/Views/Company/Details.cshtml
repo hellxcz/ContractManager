@@ -29,6 +29,18 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.DIC)
     </div>
+
+    <div class="display-label">
+        @Html.LabelFor(model => model.Addresses)    
+    </div>
+    <div>@Html.Partial("_AddressesDetail", Model.Addresses)</div>
+    
+    <div class="display-label">
+        @Html.LabelFor(model => model.Contacts)    
+    </div>
+    <div>@Html.Partial("_ContactsDetail", Model.Contacts)</div>
+   
+
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |

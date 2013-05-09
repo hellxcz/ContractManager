@@ -1,0 +1,7 @@
+﻿@model  IEnumerable<ContractManager.Domain.Address>
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(modelItem => item.Street)<span>, </span>
+}
+

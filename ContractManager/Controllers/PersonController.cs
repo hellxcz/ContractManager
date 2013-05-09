@@ -18,7 +18,7 @@ namespace ContractManager.Controllers
         {
         }
         
-        //protected override ActionResult CreateRedirectAction(Person entity)
+        //protected override ActionResult GetCreateRedirectAction(Person entity)
         //{
         //    return base.Edit(entity.Id);
         //}

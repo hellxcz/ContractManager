@@ -1,7 +1,8 @@
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
-using ContractManager.Domain.Interrfaces;
+using ContractManager.Domain.Interfaces;
 using ContractManager.Infrastructure;
 
 namespace ContractManager.Controllers.Base
@@ -24,7 +25,7 @@ namespace ContractManager.Controllers.Base
             return View(Entities);
         }
 
-        public ActionResult Details(int id)
+        public virtual ActionResult Details(int id)
         {
             var entity = Entities.Find(id);
 
@@ -51,12 +52,10 @@ namespace ContractManager.Controllers.Base
                     return View(entity);
                 }
 
-                // TODO: Add insert logic here
-
                 Entities.Add(entity);
                 ContractDb.SaveChanges();
 
-                return CreateRedirectAction(entity);
+                return GetCreateRedirectAction(entity);
             }
             catch
             {
@@ -64,7 +63,7 @@ namespace ContractManager.Controllers.Base
             }
         }
 
-        protected virtual ActionResult CreateRedirectAction(TEntity entity)
+        protected virtual ActionResult GetCreateRedirectAction(TEntity entity)
         {
             return RedirectToAction("Index");
         }
@@ -91,13 +90,11 @@ namespace ContractManager.Controllers.Base
                     return View(entity);
                 }
 
-                // TODO: Add update logic here
-
                 var savedEntity = Entities.Find(entity.Id);
 
-                if (TryUpdateModel(savedEntity))
+                if (!TryUpdateModel(savedEntity))
                 {
-                    
+                    return View();
                 }
 
                 ContractDb.SaveChanges();
@@ -110,9 +107,38 @@ namespace ContractManager.Controllers.Base
             }
         }
 
-        public ActionResult Delete(int id)
+        public virtual ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                var savedEntity = Entities.Find(id);
+
+                var redirectAction = GetDeleteRedirectAction(savedEntity);
+
+                if (!ModelState.IsValid)
+                {
+                    return View(savedEntity);
+                }
+
+                Entities.Remove(savedEntity);
+
+                ContractDb.SaveChanges();
+
+                return redirectAction;
+
+            }
+            catch(Exception e)
+            {
+                // maybe redirect to error page with some message
+                // that he deletion has failed by reaseon
+
+                return View();
+            }
+        }
+
+        protected virtual ActionResult GetDeleteRedirectAction(TEntity entity)
+        {
+            return RedirectToAction("Index");
         }
 
         protected abstract IDbSet<TEntity> GetDbSet();
